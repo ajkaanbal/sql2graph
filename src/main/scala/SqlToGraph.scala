@@ -15,9 +15,7 @@ object Sql2Graph{
 // }
 
   def main(args: Array[String]){
-    val graph = new QueryParser("select from x;")
-    val database:String = graph.usesDatabase()
-    println(database)
+    // val graph = new QueryParser("select from x;")
   }
 }
 
@@ -25,8 +23,8 @@ class QueryParser(val query: String) {
     val parser = new SQLParser()
     val queryParsed = parser.parse(query)
 
-    def usesDatabase():String = {
-      println(queryParsed.get)
-      ""
+    def usesTables():List[String] = {
+      println(queryParsed.get.relations.get)
+      // queryParsed.get.relations.get.foreach(x => x.name)
     }
 }

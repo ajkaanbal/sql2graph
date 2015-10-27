@@ -3,12 +3,12 @@ import ajk.QueryParser
 
 class Sql2GraphSpec extends FunSuite {
 
-  test("Query Parser should should return database names") {
-    val q:String = "select title from `database1`.post;"
+  test("Query Parser should should return table names") {
+    val q:String = "select title from post;"
     val query = new QueryParser(q)
 
-    val actual = query.usesDatabase()
-    val expected = ""
+    val actual = query.usesTable()
+    val expected = "post"
 
     assert(actual == expected)
   }
